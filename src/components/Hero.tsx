@@ -18,7 +18,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
       {/* Parallax Background */}
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <Image
-          src="/images/room-overview.jpg"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/room-overview.jpg`}
           alt="Apartman Boško - Luxury apartment interior"
           fill
           priority

@@ -3,15 +3,17 @@
 import Image from "next/image";
 import RevealOnScroll from "./RevealOnScroll";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const images = [
-  { src: "/images/room-overview.jpg", alt: "Pregled apartmana", span: "md:col-span-2 md:row-span-2" },
-  { src: "/images/dining-table.jpg", alt: "Trpezarija", span: "" },
-  { src: "/images/kitchen.jpg", alt: "Kuhinja", span: "" },
-  { src: "/images/sofa-art.jpg", alt: "Dnevni boravak", span: "" },
-  { src: "/images/coffee-set.jpg", alt: "Tradicionalni srpski kafu set", span: "" },
-  { src: "/images/tea-station.jpg", alt: "Čaj i kafa kutak", span: "" },
-  { src: "/images/laundry-sink.jpg", alt: "Kuhinja i pranje", span: "" },
-  { src: "/images/bathroom.jpg", alt: "Kupatilo", span: "" },
+  { src: `${bp}/images/room-overview.jpg`, alt: "Pregled apartmana", span: "md:col-span-2 md:row-span-2" },
+  { src: `${bp}/images/dining-table.jpg`, alt: "Trpezarija", span: "" },
+  { src: `${bp}/images/kitchen.jpg`, alt: "Kuhinja", span: "" },
+  { src: `${bp}/images/sofa-art.jpg`, alt: "Dnevni boravak", span: "" },
+  { src: `${bp}/images/coffee-set.jpg`, alt: "Tradicionalni srpski kafu set", span: "" },
+  { src: `${bp}/images/tea-station.jpg`, alt: "Čaj i kafa kutak", span: "" },
+  { src: `${bp}/images/laundry-sink.jpg`, alt: "Kuhinja i pranje", span: "" },
+  { src: `${bp}/images/bathroom.jpg`, alt: "Kupatilo", span: "" },
 ];
 
 export default function Gallery() {

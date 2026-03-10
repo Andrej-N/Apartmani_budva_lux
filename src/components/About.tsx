@@ -11,7 +11,7 @@ export default function About() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src="/images/room-dining.jpg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/room-dining.jpg`}
                 alt="Apartman Boško enterijer"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
