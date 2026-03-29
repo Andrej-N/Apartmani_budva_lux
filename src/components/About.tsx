@@ -3,6 +3,8 @@
 import Image from "next/image";
 import RevealOnScroll from "./RevealOnScroll";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function About() {
   return (
     <section id="about" className="py-24 md:py-32 px-6">
@@ -11,14 +13,13 @@ export default function About() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/room-dining.jpg`}
-                alt="Apartman Boško enterijer"
+                src={`${bp}/images/apartments/1102-1104/rooftop-view.jpg`}
+                alt="Pogled sa terase na Stari grad Budve"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            {/* Decorative frame */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-gold/30 -z-10" />
           </div>
         </RevealOnScroll>
@@ -29,37 +30,38 @@ export default function About() {
               Dobrodošli
             </p>
             <h2 className="font-serif text-4xl md:text-5xl text-offwhite mb-8 leading-tight">
-              Vaš dom daleko
+              Vaš dom u srcu
               <br />
-              <span className="text-gold italic">od kuće</span>
+              <span className="text-gold italic">Budve</span>
             </h2>
             <div className="w-16 h-[1px] bg-gold mb-8" />
             <p className="text-offwhite-dim leading-relaxed mb-6">
-              Apartman Boško nudi savršen spoj modernog dizajna i toplog srpskog
-              gostoprimstva. Smešten u samom srcu grada, naš apartman je idealan
-              za kratke i duže boravke.
+              Lux Apartmani Budva nude 5 potpuno opremljenih luksuznih apartmana
+              sa pogledom na more, Stari grad i planine. Smješteni u modernoj
+              zgradi sa liftom, na samo par minuta od plaže.
             </p>
             <p className="text-offwhite-dim leading-relaxed mb-8">
-              Potpuno opremljena kuhinja, udoban prostor za spavanje i boravak, i
-              sve što vam je potrebno za bezbrižan odmor — čeka vas na jednom mestu.
+              Svaki apartman je pažljivo dizajniran za maksimalan komfor —
+              prostrana dnevna soba, moderna kuhinja, udobna spavaća soba i
+              balkon sa pogledom koji oduzima dah.
             </p>
             <div className="flex gap-12">
               <div>
-                <p className="font-serif text-3xl text-gold">4+</p>
+                <p className="font-serif text-3xl text-gold">5</p>
                 <p className="text-offwhite-dim text-sm uppercase tracking-wider mt-1">
-                  Gostiju
+                  Apartmana
                 </p>
               </div>
               <div>
-                <p className="font-serif text-3xl text-gold">1</p>
+                <p className="font-serif text-3xl text-gold">2</p>
                 <p className="text-offwhite-dim text-sm uppercase tracking-wider mt-1">
-                  Spavaća soba
+                  Sprata
                 </p>
               </div>
               <div>
-                <p className="font-serif text-3xl text-gold">★</p>
+                <p className="font-serif text-3xl text-gold">180°</p>
                 <p className="text-offwhite-dim text-sm uppercase tracking-wider mt-1">
-                  Top ocena
+                  Pogled
                 </p>
               </div>
             </div>

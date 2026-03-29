@@ -1,26 +1,36 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { X, Loader2, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { apartments, type ApartmentId } from "./Apartments";
 
 type ModalState = "form" | "processing" | "success";
 
 export default function BookingModal({
   isOpen,
   onClose,
+  preselectedApartment,
 }: {
   isOpen: boolean;
   onClose: () => void;
+  preselectedApartment?: ApartmentId;
 }) {
   const [state, setState] = useState<ModalState>("form");
   const [form, setForm] = useState({
     name: "",
     email: "",
+    apartment: "" as ApartmentId | "",
     startDate: "",
     endDate: "",
     message: "",
   });
+
+  useEffect(() => {
+    if (isOpen && preselectedApartment) {
+      setForm((prev) => ({ ...prev, apartment: preselectedApartment }));
+    }
+  }, [isOpen, preselectedApartment]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -30,12 +40,15 @@ export default function BookingModal({
 
   const handleClose = () => {
     onClose();
-    // Reset after animation
     setTimeout(() => {
       setState("form");
-      setForm({ name: "", email: "", startDate: "", endDate: "", message: "" });
+      setForm({ name: "", email: "", apartment: "", startDate: "", endDate: "", message: "" });
     }, 300);
   };
+
+  const selectedAptName = form.apartment
+    ? apartments.find((a) => a.id === form.apartment)?.name
+    : "";
 
   return (
     <AnimatePresence>
@@ -46,13 +59,11 @@ export default function BookingModal({
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-4"
         >
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={handleClose}
           />
 
-          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -60,10 +71,9 @@ export default function BookingModal({
             transition={{ duration: 0.3 }}
             className="relative w-full max-w-lg bg-charcoal border border-charcoal-lighter shadow-2xl max-h-[90vh] overflow-y-auto"
           >
-            {/* Close */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 text-offwhite-dim hover:text-gold transition-colors z-10"
+              className="absolute top-4 right-4 text-offwhite-dim hover:text-gold transition-colors z-10 cursor-pointer"
               aria-label="Zatvorite"
             >
               <X size={24} />
@@ -80,6 +90,30 @@ export default function BookingModal({
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Apartment select */}
+                    <div>
+                      <label className="block text-offwhite-dim text-sm mb-2">
+                        Apartman *
+                      </label>
+                      <select
+                        required
+                        value={form.apartment}
+                        onChange={(e) =>
+                          setForm({ ...form, apartment: e.target.value as ApartmentId })
+                        }
+                        className="w-full bg-charcoal-light border border-charcoal-lighter px-4 py-3 text-offwhite text-sm focus:outline-none focus:border-gold transition-colors [color-scheme:dark] cursor-pointer appearance-none"
+                      >
+                        <option value="" disabled>
+                          Izaberite apartman
+                        </option>
+                        {apartments.map((apt) => (
+                          <option key={apt.id} value={apt.id}>
+                            {apt.name} — {apt.floor}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
                     <div>
                       <label className="block text-offwhite-dim text-sm mb-2">
                         Ime i prezime *
@@ -160,7 +194,7 @@ export default function BookingModal({
 
                     <button
                       type="submit"
-                      className="w-full py-4 bg-gold text-charcoal font-semibold uppercase tracking-wider text-sm hover:bg-gold-light transition-all duration-300"
+                      className="w-full py-4 bg-gold text-charcoal font-semibold uppercase tracking-wider text-sm hover:bg-gold-light transition-all duration-300 cursor-pointer"
                     >
                       Pošaljite zahtev
                     </button>
@@ -190,12 +224,15 @@ export default function BookingModal({
                     Zahtev je uspešno poslat!
                   </h3>
                   <p className="text-offwhite-dim leading-relaxed mb-8 max-w-sm">
-                    Vlasnik će Vas kontaktirati uskoro. Hvala na interesovanju za
-                    Apartman Boško.
+                    {selectedAptName
+                      ? `Vaš upit za ${selectedAptName} je primljen. `
+                      : ""}
+                    Kontaktiraćemo Vas uskoro. Hvala na interesovanju za
+                    Lux Apartmane Budva.
                   </p>
                   <button
                     onClick={handleClose}
-                    className="px-8 py-3 border border-gold text-gold uppercase tracking-wider text-sm hover:bg-gold hover:text-charcoal transition-all duration-300"
+                    className="px-8 py-3 border border-gold text-gold uppercase tracking-wider text-sm hover:bg-gold hover:text-charcoal transition-all duration-300 cursor-pointer"
                   >
                     Zatvorite
                   </button>

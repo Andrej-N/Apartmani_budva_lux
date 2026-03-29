@@ -7,10 +7,10 @@ import {
   WashingMachine,
   ShowerHead,
   Tv,
-  ParkingCircle,
+  Mountain,
   Coffee,
   BedDouble,
-  Shirt,
+  Waves,
 } from "lucide-react";
 import RevealOnScroll from "./RevealOnScroll";
 
@@ -21,10 +21,10 @@ const amenities = [
   { icon: WashingMachine, label: "Veš mašina" },
   { icon: ShowerHead, label: "Moderno kupatilo" },
   { icon: Tv, label: "Smart TV" },
-  { icon: ParkingCircle, label: "Besplatan parking" },
+  { icon: Mountain, label: "Pogled na more" },
   { icon: Coffee, label: "Kafa i čaj" },
   { icon: BedDouble, label: "Udoban krevet" },
-  { icon: Shirt, label: "Peglanje" },
+  { icon: Waves, label: "Blizu plaže" },
 ];
 
 export default function Amenities() {

@@ -18,8 +18,8 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
       {/* Parallax Background */}
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <Image
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/room-overview.jpg`}
-          alt="Apartman Boško - Luxury apartment interior"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/hero-budva-panorama.jpg`}
+          alt="Lux Apartmani Budva - Panoramski pogled na Stari grad Budve"
           fill
           priority
           className="object-cover"
@@ -40,7 +40,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gold uppercase tracking-[0.3em] text-sm mb-6"
         >
-          Luksuzni smeštaj u Srbiji
+          Luksuzni smeštaj u Budvi
         </motion.p>
 
         <motion.h1
@@ -49,8 +49,8 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl text-offwhite mb-6 leading-tight"
         >
-          Apartman{" "}
-          <span className="text-gold italic">Boško</span>
+          Lux Apartmani{" "}
+          <span className="text-gold italic">Budva</span>
         </motion.h1>
 
         <motion.div
@@ -66,7 +66,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="text-offwhite-dim text-lg md:text-xl max-w-xl mb-12 leading-relaxed"
         >
-          Uživajte u savršenom spoju modernog komfora i tradicionalnog srpskog gostoprimstva
+          5 premium apartmana sa pogledom na more i Stari grad Budve
         </motion.p>
 
         <motion.div
@@ -82,10 +82,10 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
             Proverite dostupnost
           </button>
           <a
-            href="#gallery"
+            href="#apartments"
             className="px-10 py-4 border border-offwhite-dim text-offwhite-dim uppercase tracking-wider text-sm hover:border-gold hover:text-gold transition-all duration-300"
           >
-            Pogledajte galeriju
+            Pogledajte apartmane
           </a>
         </motion.div>
       </motion.div>

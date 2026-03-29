@@ -5,7 +5,8 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { href: "#about", label: "O apartmanu" },
+  { href: "#about", label: "O nama" },
+  { href: "#apartments", label: "Apartmani" },
   { href: "#gallery", label: "Galerija" },
   { href: "#amenities", label: "Sadržaj" },
   { href: "#calendar", label: "Dostupnost" },
@@ -45,9 +46,9 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="group">
-          <span className="font-serif text-2xl md:text-3xl tracking-wide text-offwhite group-hover:text-gold transition-colors duration-300">
-            Apartman{" "}
-            <span className="text-gold">Boško</span>
+          <span className="font-serif text-xl md:text-2xl tracking-wide text-offwhite group-hover:text-gold transition-colors duration-300">
+            Lux Apartmani{" "}
+            <span className="text-gold">Budva</span>
           </span>
         </a>
 

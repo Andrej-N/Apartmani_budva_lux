@@ -6,11 +6,12 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <p className="font-serif text-2xl text-offwhite mb-4">
-              Apartman <span className="text-gold">Boško</span>
+              Lux Apartmani <span className="text-gold">Budva</span>
             </p>
             <p className="text-offwhite-dim text-sm leading-relaxed">
-              Luksuzni apartman u srcu Srbije. Savršen spoj modernog komfora i
-              tradicionalnog gostoprimstva.
+              5 luksuznih apartmana u srcu Budve sa pogledom na more
+              i Stari grad. Savršen spoj modernog komfora i
+              mediteranskog šarma.
             </p>
           </div>
 
@@ -21,7 +22,8 @@ export default function Footer() {
             </p>
             <ul className="space-y-3">
               {[
-                { href: "#about", label: "O apartmanu" },
+                { href: "#about", label: "O nama" },
+                { href: "#apartments", label: "Apartmani" },
                 { href: "#gallery", label: "Galerija" },
                 { href: "#amenities", label: "Pogodnosti" },
                 { href: "#calendar", label: "Dostupnost" },
@@ -44,16 +46,16 @@ export default function Footer() {
               Kontakt
             </p>
             <ul className="space-y-3 text-offwhite-dim text-sm">
-              <li>Srbija</li>
-              <li>info@apartmanbosko.rs</li>
-              <li>+381 XX XXX XXXX</li>
+              <li>Budva, Crna Gora</li>
+              <li>info@luxapartmanibudva.me</li>
+              <li>+382 XX XXX XXX</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-charcoal-lighter pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-offwhite-dim/60 text-xs">
-            &copy; {new Date().getFullYear()} Apartman Boško. Sva prava zadržana.
+            &copy; {new Date().getFullYear()} Lux Apartmani Budva. Sva prava zadržana.
           </p>
           <p className="text-offwhite-dim/40 text-xs">
             Dizajnirano sa ljubavlju

@@ -16,7 +16,7 @@ export default function CTASection() {
           </h2>
           <p className="text-offwhite-dim max-w-xl mx-auto mb-12 leading-relaxed">
             Rezervišite direktno za najbolju cenu ili nas kontaktirajte putem
-            WhatsApp-a za brz odgovor.
+            WhatsApp-a za brz odgovor. 5 luksuznih apartmana vas čeka u Budvi.
           </p>
         </RevealOnScroll>
 

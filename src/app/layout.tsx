@@ -15,15 +15,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Apartman Boško | Luxury Stay in Serbia",
+  title: "Lux Apartmani Budva | Luksuzni smeštaj u Budvi",
   description:
-    "Experience the charm of Serbia in our beautifully appointed luxury apartment. Fully equipped, centrally located, and available for short and long-term stays. Book directly for the best rates.",
+    "5 luksuznih apartmana u srcu Budve sa pogledom na more i Stari grad. Potpuno opremljeni, savršena lokacija, dostupni za kratke i duže boravke. Rezervišite direktno za najbolju cenu.",
   keywords:
-    "apartment rental Serbia, luxury accommodation, short term rental, Apartman Boško, vacation rental Serbia",
+    "apartmani Budva, luksuzni smeštaj Budva, apartmani sa pogledom na more, Crna Gora apartmani, vacation rental Budva, Montenegro apartments",
   openGraph: {
-    title: "Apartman Boško | Luxury Stay in Serbia",
+    title: "Lux Apartmani Budva | Luksuzni smeštaj u Budvi",
     description:
-      "Experience the charm of Serbia in our beautifully appointed luxury apartment.",
+      "5 luksuznih apartmana u srcu Budve sa pogledom na more i Stari grad.",
     type: "website",
     locale: "sr_RS",
   },
@@ -43,14 +43,15 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LodgingBusiness",
-              name: "Apartman Boško",
+              name: "Lux Apartmani Budva",
               description:
-                "Luxury apartment rental in Serbia with modern amenities and traditional charm.",
-              image: "/images/room-overview.jpg",
+                "5 luksuznih apartmana u Budvi sa pogledom na more i Stari grad. Moderan komfor i savršena lokacija.",
+              image: "/images/apartments/1102-1104/city-sea-panorama.jpg",
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "RS",
-                addressLocality: "Serbia",
+                addressCountry: "ME",
+                addressLocality: "Budva",
+                addressRegion: "Crna Gora",
               },
               priceRange: "$$",
               amenityFeature: [
