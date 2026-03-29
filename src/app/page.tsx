@@ -11,11 +11,14 @@ import Calendar from "@/components/Calendar";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import BookingModal from "@/components/BookingModal";
+import ApartmentGalleryModal from "@/components/ApartmentGalleryModal";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedApartment, setSelectedApartment] = useState<ApartmentId>("302");
   const [modalApartment, setModalApartment] = useState<ApartmentId | undefined>();
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryApartment, setGalleryApartment] = useState<ApartmentId | null>(null);
 
   const handleOpenModal = useCallback((apartmentId?: ApartmentId) => {
     setModalApartment(apartmentId);
@@ -26,10 +29,14 @@ export default function Home() {
     setModalApartment(id);
     setSelectedApartment(id);
     setModalOpen(true);
-    // Scroll to calendar after a brief delay
     setTimeout(() => {
       document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" });
     }, 100);
+  }, []);
+
+  const handleOpenGallery = useCallback((id: ApartmentId) => {
+    setGalleryApartment(id);
+    setGalleryOpen(true);
   }, []);
 
   return (
@@ -38,7 +45,7 @@ export default function Home() {
       <main>
         <Hero onOpenModal={() => handleOpenModal()} />
         <About />
-        <Apartments onSelectApartment={handleSelectApartment} />
+        <Apartments onSelectApartment={handleSelectApartment} onOpenGallery={handleOpenGallery} />
         <Gallery />
         <Amenities />
         <Calendar
@@ -53,6 +60,15 @@ export default function Home() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         preselectedApartment={modalApartment}
+      />
+      <ApartmentGalleryModal
+        isOpen={galleryOpen}
+        onClose={() => setGalleryOpen(false)}
+        apartmentId={galleryApartment}
+        onBook={(id) => {
+          setGalleryOpen(false);
+          handleSelectApartment(id);
+        }}
       />
     </>
   );

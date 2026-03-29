@@ -46,7 +46,7 @@ export const apartments: ApartmentInfo[] = [
     floor: "11. sprat",
     floorNumber: 11,
     description: "Elegantan apartman sa pogledom na more i Stari grad, moderan enterijer.",
-    image: `${bp}/images/apartments/1102-1104/room-sea-view.jpg`,
+    image: `${bp}/images/apartments/1102-1104/balcony-sea-view.jpg`,
     view: "More i Stari grad",
     guests: 4,
   },
@@ -74,8 +74,10 @@ export const apartments: ApartmentInfo[] = [
 
 export default function Apartments({
   onSelectApartment,
+  onOpenGallery,
 }: {
   onSelectApartment: (id: ApartmentId) => void;
+  onOpenGallery: (id: ApartmentId) => void;
 }) {
   return (
     <section id="apartments" className="py-24 md:py-32 px-6 bg-charcoal-light">
@@ -96,7 +98,10 @@ export default function Apartments({
           {apartments.slice(0, 2).map((apt, i) => (
             <RevealOnScroll key={apt.id} delay={i * 0.1}>
               <div className="group border border-charcoal-lighter hover:border-gold/40 transition-all duration-500 overflow-hidden bg-charcoal">
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div
+                  className="relative aspect-[16/10] overflow-hidden cursor-pointer"
+                  onClick={() => onOpenGallery(apt.id)}
+                >
                   <Image
                     src={apt.image}
                     alt={apt.name}
@@ -104,6 +109,11 @@ export default function Apartments({
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Pogledajte galeriju
+                    </span>
+                  </div>
                   <div className="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-sm px-3 py-1.5">
                     <span className="text-gold text-xs uppercase tracking-wider font-semibold">
                       {apt.floor}
@@ -148,7 +158,10 @@ export default function Apartments({
           {apartments.slice(2).map((apt, i) => (
             <RevealOnScroll key={apt.id} delay={(i + 2) * 0.1}>
               <div className="group border border-charcoal-lighter hover:border-gold/40 transition-all duration-500 overflow-hidden bg-charcoal">
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div
+                  className="relative aspect-[16/10] overflow-hidden cursor-pointer"
+                  onClick={() => onOpenGallery(apt.id)}
+                >
                   <Image
                     src={apt.image}
                     alt={apt.name}
@@ -156,6 +169,11 @@ export default function Apartments({
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Pogledajte galeriju
+                    </span>
+                  </div>
                   <div className="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-sm px-3 py-1.5">
                     <span className="text-gold text-xs uppercase tracking-wider font-semibold">
                       {apt.floor}

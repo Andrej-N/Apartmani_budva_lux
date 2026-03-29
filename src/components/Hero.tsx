@@ -26,7 +26,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
           sizes="100vw"
           quality={85}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#121212]/60 via-[#121212]/40 to-[#121212]" />
       </motion.div>
 
       {/* Content */}
