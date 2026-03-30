@@ -64,14 +64,6 @@ export default function Header() {
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="#contact"
-              className="ml-2 px-5 py-2 border border-gold text-gold text-sm uppercase tracking-wider hover:bg-gold hover:text-charcoal transition-all duration-300"
-            >
-              Rezervišite
-            </a>
-          </li>
         </ul>
 
         {/* Mobile toggle */}
@@ -105,14 +97,6 @@ export default function Header() {
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href="#contact"
-                  className="px-8 py-3 border border-gold text-gold uppercase tracking-wider hover:bg-gold hover:text-charcoal transition-all duration-300"
-                >
-                  Rezervišite
-                </a>
-              </li>
             </ul>
           </motion.div>
         )}
